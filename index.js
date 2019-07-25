@@ -8,6 +8,16 @@ const app = new Vue({
             {nombre:'Mente', poder:8},
             {nombre:'Velocidad', poder:2},
 
-        ]
-    }
+        ],
+        NuevaCaracteristica: ''
+        
+    },
+    methods: {
+        agregarCaracterisca(){
+            this.armas.push({
+                nombre: this.NuevaCaracteristica, poder:0
+            })
+        },
+
+    },
 })
