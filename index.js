@@ -9,7 +9,8 @@ const app = new Vue({
             {nombre:'Velocidad', poder:2},
 
         ],
-        NuevaCaracteristica: ''
+        NuevaCaracteristica: '',
+        total:0
         
     },
     methods: {
@@ -17,7 +18,17 @@ const app = new Vue({
             this.armas.push({
                 nombre: this.NuevaCaracteristica, poder:0
             })
+            this.NuevaCaracteristica = '';
         },
 
+    },
+    computed: {
+        sumarCaracteristica(){
+            this.total = 0;
+            for(arma of this.armas){
+                this.total = this.total + arma.poder;
+            }
+            return this.total;
+        }
     },
 })

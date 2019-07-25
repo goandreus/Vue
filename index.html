@@ -12,18 +12,23 @@
 
     <div id="app">
         <h1>{{titulo}}</h1>
-        <input type="text" v-model="NuevaCaracteristica">
+        <input type="text" v-model="NuevaCaracteristica" @keyup.enter="agregarCaracterisca">
         <button @click="agregarCaracterisca">Agregar</button>
         <ul>
             <li v-for="heroe of heroes">{{heroe}}</li>
         </ul>
 
         <ul>
-            <li v-for="arma of armas">{{arma.nombre}} - {{arma.poder}} -
+            <li v-for="arma of armas">
+                <input type="number" v-model.number="arma.poder">
+                {{arma.nombre}}
+                <button @click="arma.poder++">+</button>
                 <span v-if="arma.poder === 2">Muy debil</span>
             </li>
 
         </ul>
+
+        <h4>TOTAL: {{sumarCaracteristica}}</h4>
 
     </div>
 
